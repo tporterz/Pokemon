@@ -1,6 +1,6 @@
-package poke.model;
+package poke.model;                                    
 
-public class Entei extends Pokemon
+public class Entei extends Pokemon implements Fire
 {
 	public Entei()
 	{
@@ -24,6 +24,27 @@ public class Entei extends Pokemon
 	{
 		this.setCanEvolve(false);
 		this.setHealth(380);
+	}
+
+	public void flamethrower()
+	{
+		
+	}
+
+	public void ember()
+	{
+
+		
+	}
+
+	public void eruption()
+	{
+		
+	}
+
+	public void fireFang()
+	{
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 package poke.model;
 
-public class Mew extends Pokemon
+public class Mew extends Pokemon implements Psychic
 {
 	public Mew()
 	{
@@ -24,6 +24,26 @@ public class Mew extends Pokemon
 	{
 		this.setCanEvolve(false);
 		this.setHealth(365);
+	}
+
+	public void psychic()
+	{
+		
+	}
+
+	public void futureSight()
+	{
+		
+	}
+
+	public void zenHeadbutt()
+	{
+		
+	}
+
+	public void imprison()
+	{
+		
 	}
 
 }

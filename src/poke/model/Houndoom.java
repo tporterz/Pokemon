@@ -1,6 +1,6 @@
 package poke.model;
 
-public class Houndoom extends Pokemon
+public class Houndoom extends Pokemon implements Dark, Fire
 {
 	public Houndoom()
 	{
@@ -24,6 +24,46 @@ public class Houndoom extends Pokemon
 	{
 		this.setCanEvolve(false);
 		this.setHealth(325);
+	}
+
+	public void flamethrower()
+	{
+		
+	}
+
+	public void ember()
+	{
+		
+	}
+
+	public void eruption()
+	{
+		
+	}
+
+	public void fireFang()
+	{
+		
+	}
+
+	public void darkPulse()
+	{
+		
+	}
+
+	public void feintAttack()
+	{
+		
+	}
+
+	public void bite()
+	{
+		
+	}
+
+	public void payback()
+	{
+		
 	}
 
 }

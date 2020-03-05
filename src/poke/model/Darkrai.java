@@ -1,6 +1,6 @@
 package poke.model;
 
-public class Darkrai extends Pokemon
+public class Darkrai extends Pokemon implements Dark
 {
 	public Darkrai()
 	{
@@ -24,6 +24,26 @@ public class Darkrai extends Pokemon
 	{
 		this.setCanEvolve(false);
 		this.setHealth(310);
+	}
+
+	public void darkPulse()
+	{
+		
+	}
+
+	public void payback()
+	{
+
+	}
+
+	public void feintAttack()
+	{
+		
+	}
+
+	public void bite()
+	{
+		
 	}
 
 }

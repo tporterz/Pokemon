@@ -1,5 +1,7 @@
 package poke.view;
 
+import java.awt.Color;
+
 import javax.swing.*;
 import poke.controller.PokeController;
 
@@ -10,7 +12,7 @@ public class PokePanel extends JPanel
 	
 	private JButton updateButton;
 	private JButton saveButton;
-	private JComboBox<String> pokemonDropDown; //new
+	private JComboBox<String> pokemonDropdown; //new
 	
 	private JCheckBox evolvableBox; //new
 	private JLabel evolveLabel;
@@ -32,18 +34,23 @@ public class PokePanel extends JPanel
 		this.controller = controller;
 		
 		this.appLayout = new SpringLayout();
+		
 		this.saveButton = new JButton("Save the Changes");
 		this.updateButton = new JButton("Update the current Pokemon");
-		this.pokemonDropDown = new JComboBox<String>();
+		this.pokemonDropdown = new JComboBox<String>();
+		
 		this.evolvableBox = new JCheckBox();
 		this.evolveLabel = new JLabel("Is this Pokemon evolvable?");
 		this.nameField = new JTextField("name");
+		
 		this.nameLabel = new JLabel("This Pokemon's name is:");
 		this.pokedexLabel = new JLabel("Pokedex");
+		
 		this.healthField = new JTextField("health");
 		this.healthLabel = new JLabel("This Pokemon has a health of:");
-		this.pokedexNumberLabel = new JLabel();
+		
 		this.pokedexString = "The number for this Pokemon is: ";
+		this.pokedexNumberLabel = new JLabel(pokedexString);
 		
 		setupPanel();
 		setupLayout();
@@ -64,7 +71,24 @@ public class PokePanel extends JPanel
 
 	private void setupPanel()
 	{
+		this.setLayout(appLayout);
+		this.setBackground(Color.MAGENTA);
 		
+		this.add(evolvableBox);
+		this.add(evolveLabel);
 		
+		this.add(pokedexLabel);
+		
+		this.add(nameField);
+		this.add(nameLabel);
+		
+		this.add(healthField);
+		this.add(healthLabel);
+		
+		this.add(pokedexNumberLabel);
+		
+		this.add(saveButton);
+		this.add(updateButton);
+		this.add(pokemonDropdown);
 	}
 }

@@ -31,6 +31,8 @@ public class PokePanel extends JPanel
 	private JTextField typesField;
 	private JLabel typesLabel;
 	
+	private ImageIcon pokemonIcon;
+	
 	public PokePanel(PokeController controller)
 	{
 		super();
@@ -59,9 +61,31 @@ public class PokePanel extends JPanel
 		this.typesLabel = new JLabel("This Pokemon has the following types:");
 		this.typesField = new JTextField("type");
 		
+		setupDropdown();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+	}
+
+	private void setupDropdown()
+	{
+		DefaultComboBoxModel pokedexModel = new DefaultComboBoxModel<String>(controller.getPokemon());
+		pokemonDropdown.setModel(pokedexModel);
+		pokedexLabel.setVerticalTextPosition(JLabel.BOTTOM);
+		pokedexLabel.setHorizontalTextPosition(JLabel.CENTER);
+		updateDisplay("");
+		
+	}
+	
+	private void updatePokemon(int index)
+	{
+		
+	}
+
+	private void updateDisplay(String name)
+	{
+		
+		
 	}
 
 	private void setupListeners()

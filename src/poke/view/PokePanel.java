@@ -44,64 +44,66 @@ public class PokePanel extends JPanel
 		this.appLayout = new SpringLayout();
 		
 		this.saveButton = new JButton("Save the Changes");
-		appLayout.putConstraint(SpringLayout.SOUTH, saveButton, -10, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, saveButton, -20, SpringLayout.EAST, this);
 		this.updateButton = new JButton("Update the current Pokemon");
-		appLayout.putConstraint(SpringLayout.EAST, updateButton, -10, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.NORTH, saveButton, 4, SpringLayout.SOUTH, updateButton);
-		appLayout.putConstraint(SpringLayout.WEST, saveButton, 10, SpringLayout.WEST, updateButton);
 		this.pokemonDropdown = new JComboBox<String>();
-		appLayout.putConstraint(SpringLayout.WEST, updateButton, 105, SpringLayout.EAST, pokemonDropdown);
-		appLayout.putConstraint(SpringLayout.SOUTH, pokemonDropdown, -26, SpringLayout.SOUTH, this);
 		
 		this.evolvableBox = new JCheckBox();
 		this.evolveLabel = new JLabel("Is this Pokemon evolvable?");
-		appLayout.putConstraint(SpringLayout.WEST, pokemonDropdown, 0, SpringLayout.WEST, evolveLabel);
-		appLayout.putConstraint(SpringLayout.SOUTH, evolveLabel, -616, SpringLayout.SOUTH, this);
 		
 		this.nameField = new JTextField("name");
 		this.nameLabel = new JLabel("This Pokemon's name is:");
-		appLayout.putConstraint(SpringLayout.EAST, evolveLabel, 0, SpringLayout.EAST, nameLabel);
-		appLayout.putConstraint(SpringLayout.NORTH, nameLabel, 56, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, nameLabel, 389, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, nameLabel, -242, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.NORTH, nameField, -5, SpringLayout.NORTH, nameLabel);
-		appLayout.putConstraint(SpringLayout.WEST, nameField, 6, SpringLayout.EAST, nameLabel);
 		
 		this.pokedexLabel = new JLabel("Pokedex");
-		appLayout.putConstraint(SpringLayout.NORTH, pokedexLabel, 206, SpringLayout.SOUTH, evolveLabel);
-		appLayout.putConstraint(SpringLayout.WEST, pokedexLabel, 365, SpringLayout.WEST, this);
 		
 		this.healthField = new JTextField("health");
-		appLayout.putConstraint(SpringLayout.NORTH, evolvableBox, 6, SpringLayout.SOUTH, healthField);
-		appLayout.putConstraint(SpringLayout.WEST, evolvableBox, 8, SpringLayout.WEST, healthField);
-		appLayout.putConstraint(SpringLayout.EAST, evolvableBox, -14, SpringLayout.EAST, healthField);
 		this.healthLabel = new JLabel("This Pokemon has a health of:");
-		appLayout.putConstraint(SpringLayout.NORTH, healthField, -5, SpringLayout.NORTH, healthLabel);
-		appLayout.putConstraint(SpringLayout.WEST, healthField, 10, SpringLayout.EAST, healthLabel);
-		appLayout.putConstraint(SpringLayout.NORTH, healthLabel, 6, SpringLayout.SOUTH, nameField);
-		appLayout.putConstraint(SpringLayout.WEST, healthLabel, 389, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, healthLabel, -213, SpringLayout.EAST, this);
 		
 		this.pokedexString = "The number for this Pokemon is: ";
 		this.pokedexNumberLabel = new JLabel(pokedexString);
-		appLayout.putConstraint(SpringLayout.NORTH, pokedexNumberLabel, 8, SpringLayout.SOUTH, healthField);
-		appLayout.putConstraint(SpringLayout.WEST, pokedexNumberLabel, 0, SpringLayout.WEST, nameLabel);
 		
 		this.typesLabel = new JLabel("This Pokemon has the following types:");
-		appLayout.putConstraint(SpringLayout.NORTH, typesLabel, 6, SpringLayout.SOUTH, evolvableBox);
-		appLayout.putConstraint(SpringLayout.NORTH, evolveLabel, 6, SpringLayout.SOUTH, typesLabel);
-		appLayout.putConstraint(SpringLayout.SOUTH, pokedexNumberLabel, -11, SpringLayout.NORTH, typesLabel);
-		appLayout.putConstraint(SpringLayout.WEST, typesLabel, 0, SpringLayout.WEST, nameLabel);
 		this.typesField = new JTextField("type");
-		appLayout.putConstraint(SpringLayout.NORTH, typesField, -5, SpringLayout.NORTH, typesLabel);
-		appLayout.putConstraint(SpringLayout.WEST, typesField, 6, SpringLayout.EAST, typesLabel);
-		appLayout.putConstraint(SpringLayout.EAST, typesField, -70, SpringLayout.EAST, this);
 		
 		setupDropdown();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+	}
+	
+	private void setupLayout()
+	{
+		appLayout.putConstraint(SpringLayout.NORTH, typesLabel, 497, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, pokedexNumberLabel, -57, SpringLayout.NORTH, typesLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, typesField, -5, SpringLayout.NORTH, typesLabel);
+		appLayout.putConstraint(SpringLayout.WEST, typesLabel, 0, SpringLayout.WEST, evolveLabel);
+		appLayout.putConstraint(SpringLayout.WEST, pokedexNumberLabel, 0, SpringLayout.WEST, evolveLabel);
+		appLayout.putConstraint(SpringLayout.WEST, healthField, 6, SpringLayout.EAST, healthLabel);
+		appLayout.putConstraint(SpringLayout.WEST, healthLabel, 0, SpringLayout.WEST, evolveLabel);
+		appLayout.putConstraint(SpringLayout.EAST, healthLabel, -213, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, evolveLabel, 574, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, evolveLabel, -131, SpringLayout.NORTH, updateButton);
+		appLayout.putConstraint(SpringLayout.WEST, evolvableBox, 23, SpringLayout.EAST, evolveLabel);
+		appLayout.putConstraint(SpringLayout.WEST, evolveLabel, 389, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, evolvableBox, 574, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, evolvableBox, -191, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.WEST, pokemonDropdown, 10, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, pokemonDropdown, -11, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, updateButton, 556, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, updateButton, -6, SpringLayout.NORTH, saveButton);
+		appLayout.putConstraint(SpringLayout.EAST, updateButton, 0, SpringLayout.EAST, saveButton);
+		appLayout.putConstraint(SpringLayout.NORTH, saveButton, 763, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, saveButton, -224, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, saveButton, -8, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, saveButton, 0, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, pokedexNumberLabel, 424, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, healthLabel, -440, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, healthField, 59, SpringLayout.EAST, healthLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, healthField, 339, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, nameLabel, -106, SpringLayout.NORTH, pokedexLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, pokedexLabel, 263, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, pokedexLabel, 154, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, nameField, -10, SpringLayout.EAST, this);
+		
 	}
 
 	private void setupDropdown()
@@ -173,11 +175,6 @@ public class PokePanel extends JPanel
 			}
 		});
 		
-	}
-
-	private void setupLayout()
-	{
-		appLayout.putConstraint(SpringLayout.SOUTH, updateButton, -43, SpringLayout.SOUTH, this);
 	}
 
 	private void setupPanel()

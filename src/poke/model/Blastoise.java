@@ -1,6 +1,6 @@
 package poke.model;
 
-public class Blastoise extends Pokemon
+public class Blastoise extends Pokemon implements Water
 {
 	public Blastoise()
 	{
@@ -24,6 +24,26 @@ public class Blastoise extends Pokemon
 	{
 		this.setCanEvolve(false);
 		this.setHealth(290);
+	}
+
+	public void rainDance()
+	{
+		
+	}
+
+	public void hydroPump()
+	{
+		
+	}
+
+	public void surf()
+	{
+		
+	}
+
+	public void waterPulse()
+	{
+		
 	}
 
 }

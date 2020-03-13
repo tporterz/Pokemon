@@ -1,5 +1,8 @@
 package poke.controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -11,10 +14,11 @@ public class PokeController
 {
 	private ArrayList<Pokemon> pokemonList;
 	private PokeFrame appFrame;
+	private String datafile;
 	
 	public void start()
 	{
-		
+		loadData();
 	}
 	
 	public PokeController()
@@ -23,6 +27,7 @@ public class PokeController
 		
 		pokemonList = new ArrayList<Pokemon>();
 		createPokedex();
+		datafile = "save.pokemon";
 		appFrame = new PokeFrame(this);
 	}
 	private void createPokedex()
@@ -40,7 +45,7 @@ public class PokeController
 		
 		for (int index = 0; index < pokemonList.size(); index++)
 		{
-			pokemonNames[index] = pokemonList.get(index).getClass().getSimpleName();
+			pokemonNames[index] = (index + 1) + ": " + pokemonList.get(index).getClass().getSimpleName();
 		}
 		return pokemonNames;
 	}
@@ -85,5 +90,32 @@ public class PokeController
 		}
 		
 		return isValid;
+	}
+	
+	public void saveData()
+	{
+		
+	}
+	
+	public void loadData()
+	{
+		try (FileInputStream loadStream = new FileInputStream(datafile);
+			ObjectInputStream input = new ObjectInputStream(loadStream))
+		{
+			ArrayList<Pokemon> loadedPokemon = new ArrayList<Pokemon>();
+			loadedPokemon = (ArrayList<Pokemon>) input.readObject();
+			pokemonList = loadedPokemon;
+		}
+		
+		catch (IOException error)
+		{
+			JOptionPane.showMessageDialog(appFrame, error.getMessage(), "File Read Error", JOptionPane.ERROR_MESSAGE);
+		}
+		
+		catch (ClassNotFoundException error)
+		{
+			JOptionPane.showMessageDialog(appFrame, error.getMessage(), "Class Error!", JOptionPane.ERROR_MESSAGE);
+		}
+		
 	}
 }
